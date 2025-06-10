@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom styles for futuristic elements */
+@layer components {
+  .tech-text {
+    font-family: var(--font-orbitron);
+    letter-spacing: 0.05em;
+  }
+  
+  .tech-glow {
+    text-shadow: 0 0 10px rgba(101, 116, 255, 0.3);
+  }
+  
+  .tech-glow:hover {
+    text-shadow: 0 0 15px rgba(101, 116, 255, 0.5);
+  }
+  
+  .tech-gradient {
+    background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+}

@@ -1,70 +1,68 @@
-import avatar1 from "@/assets/avatar-1.png";
-import avatar2 from "@/assets/avatar-2.png";
-import avatar3 from "@/assets/avatar-3.png";
-import avatar4 from "@/assets/avatar-4.png";
-import avatar5 from "@/assets/avatar-5.png";
-import avatar6 from "@/assets/avatar-6.png";
-import avatar7 from "@/assets/avatar-7.png";
-import avatar8 from "@/assets/avatar-8.png";
-import avatar9 from "@/assets/avatar-9.png";
+import React from "react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    text: "As a seasoned designer always on the lookout for innovative tools, Framer.com instantly grabbed my attention.",
-    imageSrc: avatar1.src,
+    text: "This app has completely transformed how I manage my social media presence. The automated responses save me hours every day.",
     name: "Jamie Rivera",
     username: "@jamietechguru00",
+    role: "Marketing Manager"
   },
   {
-    text: "Our team's productivity has skyrocketed since we started using this tool. ",
-    imageSrc: avatar2.src,
+    text: "Our team's engagement rates have skyrocketed since we started using this tool. The AI responses are incredibly natural.",
     name: "Josh Smith",
     username: "@jjsmith",
+    role: "Social Media Influencer"
   },
   {
-    text: "This app has completely transformed how I manage my projects and deadlines.",
-    imageSrc: avatar3.src,
+    text: "As a small business owner, I couldn't keep up with all the comments and messages. This platform has been a game-changer.",
     name: "Morgan Lee",
     username: "@morganleewhiz",
-  },
-  {
-    text: "I was amazed at how quickly we were able to integrate this app into our workflow.",
-    imageSrc: avatar4.src,
-    name: "Casey Jordan",
-    username: "@caseyj",
-  },
-  {
-    text: "Planning and executing events has never been easier. This app helps me keep track of all the moving parts, ensuring nothing slips through the cracks.",
-    imageSrc: avatar5.src,
-    name: "Taylor Kim",
-    username: "@taylorkimm",
-  },
-  {
-    text: "The customizability and integration capabilities of this app are top-notch.",
-    imageSrc: avatar6.src,
-    name: "Riley Smith",
-    username: "@rileysmith1",
-  },
-  {
-    text: "Adopting this app for our team has streamlined our project management and improved communication across the board.",
-    imageSrc: avatar7.src,
-    name: "Jordan Patels",
-    username: "@jpatelsdesign",
-  },
-  {
-    text: "With this app, we can easily assign tasks, track progress, and manage documents all in one place.",
-    imageSrc: avatar8.src,
-    name: "Sam Dawson",
-    username: "@dawsontechtips",
-  },
-  {
-    text: "Its user-friendly interface and robust features support our diverse needs.",
-    imageSrc: avatar9.src,
-    name: "Casey Harper",
-    username: "@casey09",
-  },
+    role: "Entrepreneur"
+  }
 ];
 
 export const Testimonials = () => {
-  return null;
+  return (
+    <section id="testimonials" className="py-16 bg-white">
+      <div className="container">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Users Say</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Join thousands of satisfied users who have transformed their social media strategy
+          </p>
+        </motion.div>
+        
+        <div className="grid md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <motion.div 
+              key={index}
+              className="bg-[#F8F9FF] p-6 rounded-xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,0,0,0.05)" }}
+            >
+              <p className="text-gray-700 mb-6 italic">"{testimonial.text}"</p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                <div>
+                  <h4 className="font-bold">{testimonial.name}</h4>
+                  <p className="text-sm text-gray-500">{testimonial.username}</p>
+                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
